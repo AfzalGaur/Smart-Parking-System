@@ -1,0 +1,114 @@
+body {
+    background: #021236;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+/* TOP & BOTTOM ROW */
+.rowA, .rowE {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 15px;
+}
+
+/* MAIN GRID (B C D) */
+.main-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    flex-shrink: 0;
+}
+
+/* BLOCKS */
+.block {
+    display: grid;
+    grid-template-columns: repeat(2, 60px);
+    gap: 60px;
+}
+
+/* ROADS */
+.road.horizontal {
+    height: 40px;
+    margin: 10px auto;
+    width: 80%;
+    background: repeating-linear-gradient(
+        90deg,
+        #000000,
+        #000000 20px,
+        #ffffff 20px,
+        #ffffff 40px
+    );
+}
+
+.road.vertical {
+    width: 80px;
+    height: auto;
+    min-height: 800px;
+    background: repeating-linear-gradient(
+        180deg,
+        #000000,
+        #000000 20px,
+        #ffffff 20px,
+        #ffffff 40px
+    );
+}
+
+/* SLOT */
+.slot {
+    width: 70px;
+    height: 90px;
+    background: #1e293b;
+    border: 2px solid #475569;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+/* STATUS COLORS */
+.slot.available {
+    border-color: #22c55e; /* green */
+}
+
+.slot.mine {
+    border-color: #facc15; /* yellow */
+    background: rgba(250, 204, 21, 0.2);
+}
+
+.slot.reserved {
+    border-color: #ef4444; /* red */
+    background: rgba(239, 68, 68, 0.2);
+}
+
+.slot h4 {
+    margin: 0;
+    font-size: 12px;
+}
+
+button {
+    font-size: 10px;
+    border: none;
+    border-radius: 4px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.slot {
+    transition: 0.2s ease;
+}
+
+.slot:hover {
+    transform: scale(1.05);
+}
+
+.slot.available {
+    background: rgba(34, 197, 94, 0.15);
+}
+
+.slot.reserved {
+    background: rgba(239, 68, 68, 0.2);
+}

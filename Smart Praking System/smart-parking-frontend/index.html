@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Parking</title>
+    <link rel="stylesheet" href="style.css">
+</head>  
+
+<body>
+
+<h1>Please choose your slot</h1>
+<div id="loader"></div>
+
+<button onclick="logout()" style="position:absolute; top:20px; right:20px;">
+    Logout
+</button>
+
+<!-- TOP ROW -->
+<div class="rowA" id="rowA"></div>
+
+<!-- HORIZONTAL ROAD -->
+<div class="road horizontal"></div>
+
+<!-- MAIN GRID -->
+<div class="main-grid">
+
+        <!-- VERTICAL ROAD -->
+    <div class="road vertical"></div>
+
+    <!-- B BLOCK -->
+    <div class="block" id="rowB"></div>
+
+    <!-- VERTICAL ROAD -->
+    <div class="road vertical"></div>
+
+    <!-- C BLOCK -->
+    <div class="block" id="rowC"></div>
+
+    <!-- VERTICAL ROAD -->
+    <div class="road vertical"></div>
+
+    <!-- D BLOCK -->
+    <div class="block" id="rowD"></div>
+
+        <!-- VERTICAL ROAD -->
+    <div class="road vertical"></div>
+
+</div>
+
+<!-- HORIZONTAL ROAD -->
+<div class="road horizontal"></div>
+
+<!-- BOTTOM ROW -->
+<div class="rowE" id="rowE"></div>
+
+<script src="auth/auth.js"></script>
+<script src="script.js"></script>
+<script>
+    checkAuth(); // 🔥 prevents direct access
+</script> 
+</body>
+</html>

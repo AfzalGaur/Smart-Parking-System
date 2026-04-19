@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+<link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Register</h2>
+
+    <input id="email" type="email" placeholder="Email" required>
+
+    <input id="password" type="password" placeholder="Password"
+       pattern=".{8,}" title="Minimum 8 characters" required>
+
+    <button onclick="register()">Register</button>
+
+    <p>Already have account? <a href="login.html">Login</a></p>
+
+    <p id="error"></p>
+</div>
+
+<script src="auth.js"></script>
+<script>
+if (localStorage.getItem("token")) {
+    window.location.href = "../index.html";
+}
+</script>
+<script src="auth.js"></script>
+
+<script>
+async function register() {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const error = document.getElementById("error");
+
+    error.innerText = "";
+
+    if (!email || !password) {
+        error.innerText = "All fields required";
+        return;
+    }
+
+    await registerUser(email, password);
+}
+</script>
+
+</body>
+</html>
