@@ -1,4 +1,5 @@
-    const loader = document.getElementById("loader");
+const loader = document.getElementById("loader");
+const BASE_URL = "https://your-render-url.onrender.com/api";
 function parseJwt(token) {
     try {
         return JSON.parse(atob(token.split('.')[1]));
@@ -6,7 +7,6 @@ function parseJwt(token) {
         return null;
     }
 }
-// 🔥 FETCH SLOTS (THIS WAS MISSING)
 async function fetchSlots() {
     loader.style.display = "block";
 
