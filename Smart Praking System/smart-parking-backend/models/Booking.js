@@ -7,7 +7,7 @@ const bookingSchema = new mongoose.Schema({
         required: true
     },
     user: {
-        type: String, // later we’ll replace with user model
+        type: String, 
         required: true
     },
     startTime: {

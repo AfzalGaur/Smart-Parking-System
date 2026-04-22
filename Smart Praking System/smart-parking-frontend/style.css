@@ -5,7 +5,6 @@ body {
     text-align: center;
 }
 
-/* TOP & BOTTOM ROW */
 .rowA, .rowE {
     display: flex;
     justify-content: center;
@@ -13,7 +12,6 @@ body {
     margin: 15px;
 }
 
-/* MAIN GRID (B C D) */
 .main-grid {
     display: flex;
     justify-content: center;
@@ -22,14 +20,12 @@ body {
     flex-shrink: 0;
 }
 
-/* BLOCKS */
 .block {
     display: grid;
     grid-template-columns: repeat(2, 60px);
     gap: 60px;
 }
 
-/* ROADS */
 .road.horizontal {
     height: 40px;
     margin: 10px auto;
@@ -56,7 +52,6 @@ body {
     );
 }
 
-/* SLOT */
 .slot {
     width: 70px;
     height: 90px;
@@ -69,7 +64,6 @@ body {
     padding: 5px;
 }
 
-/* STATUS COLORS */
 .slot.available {
     border-color: #22c55e; /* green */
 }

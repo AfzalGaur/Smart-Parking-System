@@ -1,6 +1,5 @@
 const Slot = require('../models/Slot');
 
-// Create slots (initial setup)
 exports.createSlots = async (req, res) => {
     try {
         const { slots } = req.body;
@@ -13,7 +12,6 @@ exports.createSlots = async (req, res) => {
     }
 };
 
-// Get all slots
 exports.getSlots = async (req, res) => {
     const slots = await Slot.find();
 
@@ -22,14 +20,12 @@ exports.getSlots = async (req, res) => {
 
     const demand = booked / total;
 
-    // 🔥 AI pricing logic
     let price = 50;
 
     if (demand > 0.7) price = 120;
     else if (demand > 0.4) price = 80;
     else price = 50;
 
-    // attach price
     const updatedSlots = slots.map(slot => ({
         ...slot.toObject(),
         price
@@ -38,7 +34,6 @@ exports.getSlots = async (req, res) => {
     res.json(updatedSlots);
 };
 
-// Update slot status (sensor/manual)
 exports.updateSlot = async (req, res) => {
     try {
         const { id } = req.params;

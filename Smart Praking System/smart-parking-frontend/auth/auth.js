@@ -1,6 +1,5 @@
 const BASE_URL = "http://127.0.0.1:5000/api";
 
-// LOGIN
 async function loginUser(email, password) {
     try {
         const res = await fetch(`${BASE_URL}/auth/login`, {
@@ -25,7 +24,6 @@ async function loginUser(email, password) {
     }
 }
 
-// REGISTER
 async function registerUser(email, password) {
     try {
         const res = await fetch(`${BASE_URL}/auth/register`, {
@@ -50,14 +48,12 @@ async function registerUser(email, password) {
     }
 }
 
-// AUTH CHECK
 function checkAuth() {
     if (!localStorage.getItem("token")) {
         window.location.href = "auth/login.html";
     }
 }
 
-// LOGOUT
 function logout() {
     localStorage.removeItem("token");
     window.location.href = "auth/login.html";

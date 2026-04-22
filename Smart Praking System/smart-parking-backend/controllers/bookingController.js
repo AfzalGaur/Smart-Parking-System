@@ -22,7 +22,7 @@ exports.createBooking = async (req, res) => {
 
         const booking = await Booking.create({
             slot: slotId,
-            user: req.user   // 🔥 from token
+            user: req.user  
         });
 
         slot.status = "reserved";
@@ -53,7 +53,7 @@ setInterval(async () => {
     }
 
     console.log("Expired bookings cleaned");
-}, 60000); // runs every 1 min
+}, 60000); 
 
 exports.cancelBooking = async (req, res) => {
     try {
@@ -63,7 +63,6 @@ exports.cancelBooking = async (req, res) => {
             return res.status(404).json({ message: "Booking not found" });
         }
 
-        // 🚫 Prevent other users
         if (booking.user.toString() !== req.user) {
             return res.status(403).json({ message: "Not authorized" });
         }

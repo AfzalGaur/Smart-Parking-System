@@ -33,7 +33,6 @@ async function fetchSlots() {
     loader.style.display = "none";
 }
 
-// 🔥 PLACE SLOTS IN UI
 function placeSlots(slots, bookings) {
     const rowA = document.getElementById("rowA");
     const rowB = document.getElementById("rowB");
@@ -48,7 +47,7 @@ function placeSlots(slots, bookings) {
     rowE.innerHTML = "";
 
     const token = localStorage.getItem("token");
-    const userId = parseJwt(token).id; // 🔥 get logged-in user
+    const userId = parseJwt(token).id; 
 
     slots.forEach(slot => {
         const booking = bookings.find(
@@ -60,17 +59,17 @@ function placeSlots(slots, bookings) {
         let content = `<h4>${slot.slotNumber}</h4>`;
 
         if (!booking) {
-            // 🟢 AVAILABLE
+            
             div.className = "slot available";
             content += `<p>₹${slot.price}</p>`;
             content += `<button onclick="bookSlot('${slot._id}')">Book</button>`;
         } else if (booking.user === userId) {
-            // 🟡 YOUR BOOKING
+            
             div.className = "slot mine";
             content += `<p>Booked</p>`;
             content += `<button onclick="cancelBooking('${booking._id}')">Cancel</button>`;
         } else {
-            // 🔴 OTHER USER
+           
             div.className = "slot reserved";
             content += `<span>Reserved</span>`;
         }
@@ -87,12 +86,10 @@ function placeSlots(slots, bookings) {
     });
 }
 
-// 🔥 BOOK SLOT (ONLY ONE VERSION)
 function bookSlot(id) {
     window.location.href = `payment/payment.html?slotId=${id}`;
 }
 
-// 🔥 CANCEL BOOKING
 async function cancelBooking(id) {
     if (!confirm("Cancel this booking? Money will not be refunded!")) return;
 
@@ -106,7 +103,6 @@ async function cancelBooking(id) {
     fetchSlots();
 }
 
-// 🚀 START
 fetchSlots();
 
 setInterval(fetchSlots, 2000); 
