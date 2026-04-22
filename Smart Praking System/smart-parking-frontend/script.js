@@ -1,5 +1,5 @@
 const loader = document.getElementById("loader");
-const BASE_URL = "https://smart-parking-system-5vq0.onrender.com//api";
+
 function parseJwt(token) {
     try {
         return JSON.parse(atob(token.split('.')[1]));
